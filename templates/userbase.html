@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>To do list app</title>
+        <link href="../static/bootstrap-4/css/bootstrap.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="jumbotron" style="margin-bottom:0">
+            <a class="navbar" href="/userHome" style="justify-content: center;">
+                <img src="../static/imgs/timo-volz-ZlFKIG6dApg-unsplash.jpg" alt="logo" style="height:500px; width: 300px;">
+            </a>
+        </div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/userHome">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/newTask">New Task</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logOut">Log out</a>
+                </li>
+            </ul>
+        </nav>
+
+        {% with message = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger">
+                <strong>Erorr:</strong> [{{ message }}]
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% block content %} {% endblock %}
+        <div class="jumbotron" style="margin-bottom: 0">
+            <p>Copyright &copy;2023 by ThanhTm</p>
+        </div>
+    </body>
+</html>
